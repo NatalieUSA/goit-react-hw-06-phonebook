@@ -14,6 +14,7 @@ export const FormGroup = styled.div`
   margin: 30px auto;
   padding: 40px;
   background-color: #16188d;
+
   border-radius: 1px;
   box-shadow: inset 6px 10px 1px 0px #68b4cf, inset -6px -10px 1px 0px deeppink;
   &::-webkit-scrollbar {

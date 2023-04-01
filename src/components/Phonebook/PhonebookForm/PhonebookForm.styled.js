@@ -64,15 +64,15 @@ export const FormBtn = styled.button`
   text-align: center;
   margin-top: 30px;
   height: 50px;
-  width: 120px;
+  width: 140px;
   // border-radius: 50px;
  cursor: pointer;
 
-  font-size: xx-small;
+  font-size: small;
   text-transform: uppercase;
  
-  background-color: red;
-  color: yellow;
+  background-color: orange;
+  color: white;
 
   border-style: none;
   box-shadow: 3px 3px 3px grey;
@@ -80,7 +80,7 @@ export const FormBtn = styled.button`
   :hover {
   text-transform: lowercase;
   background-color: deeppink;
-  color: yellow;
+  color: white;
 
 
 `;

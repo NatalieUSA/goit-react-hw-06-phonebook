@@ -20,7 +20,7 @@ body {
  //background-image: url("https://t4.ftcdn.net/jpg/01/79/37/99/240_F_179379926_LP8w6b3wNDfImZoZTEAdOgzNTEJd4oxF.jpg");
 background-image: url("https://images.fineartamerica.com/images-medium-large-5/pop-art-comic-book-mouth-of-woman-drante.jpg");
 background-size: cover;
-color:yellow;
+color: white;
 }
 
 code {
@@ -29,7 +29,7 @@ code {
 }
 
 h2 {
-  color: yellow;
+  color: white;
   text-align: center;
   margin: 50px 0;
 }
