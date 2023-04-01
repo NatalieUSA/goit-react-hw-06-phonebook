@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const Wrap = styled.div`
-  width: 55%;
+  width: 60%;
   margin: 30px auto;
   padding: 5px;
-  background-color: deeppink;
-  border-radius: 25px;
-  box-shadow: inset 6px 6px 6px 0px #68b4cf, inset -6px -10px 10px 0px #68b4cf;
+  background-color: red;
+  border-radius: 1px;
+  box-shadow: inset 6px 6px 1px 0px #68b4cf, inset -6px -10px 1px 0px #68b4cf;
   &::-webkit-scrollbar {
     width: 10px;
   }

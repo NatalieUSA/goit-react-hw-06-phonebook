@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Layout = styled.div`
-  color: grey;
+  color: deepgrey;
   margin-right: auto;
   margin-left: auto;
   width: 100%;

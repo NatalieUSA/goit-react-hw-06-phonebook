@@ -7,16 +7,15 @@ export const FormGroup = styled.div`
   flex-direction: column;
   overflow: overlay;
   gap: 10px;
-  width: 55%;
+  width: 65%;
   height: 15%;
   box-sizing: border-box;
   list-style: none;
   margin: 30px auto;
   padding: 40px;
-  background-color: yellow;
-
-  border-radius: 25px;
-  box-shadow: inset 6px 6px 6px 0px #68b4cf, inset -6px -10px 10px 0px #68b4cf;
+  background-color: #16188d;
+  border-radius: 1px;
+  box-shadow: inset 6px 10px 1px 0px #68b4cf, inset -6px -10px 1px 0px deeppink;
   &::-webkit-scrollbar {
     width: 10px;
   }
@@ -36,7 +35,7 @@ export const FormGroup = styled.div`
     width: 65%;
   }
   @media (min-width: 1020px) {
-    width: 40%;
+    width: 60%;
   }
 `;
 

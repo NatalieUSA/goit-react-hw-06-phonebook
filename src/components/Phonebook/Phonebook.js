@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { nanoid } from 'nanoid';
+// import { useEffect, useState } from 'react';
+// import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
 
 import { PhonebookList } from './PhonebookList/PhonebookList';
@@ -7,70 +7,89 @@ import { PhonebookFilter } from './PhonebookFilter/PhonebookFilter';
 import { PhonebookForm } from './PhonebookForm/PhonebookForm';
 import { Title } from 'components/shared/Title/Title';
 import { Block, Wrap } from './Phonebook.styled';
+//redux
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import {
+  addContact,
+  deleteContact,
+} from 'components/redux/contacts/ContactsSlice';
+import {
+  getAllContacts,
+  getFilteredContacts,
+} from 'components/redux/contacts/ContactsSelector';
+import { getFilter } from 'components/redux/filter/FilterSelectors';
+import { setFilter } from 'components/redux/filter/FilterSlice';
 
 export const Phonebook = () => {
-  const [contacts, setContacts] = useState(() => {
-    const contacts = JSON.parse(localStorage.getItem('my-contacts'));
-    return contacts ? contacts : [];
-  });
-  const [filter, setFilter] = useState('');
+  // const [contacts, setContacts] = useState(() => {
+  //   const contacts = JSON.parse(localStorage.getItem('my-contacts'));
+  //   return contacts ? contacts : [];
+  // });
 
-  useEffect(() => {
-    localStorage.setItem('my-contacts', JSON.stringify(contacts));
-  }, [contacts]);
+  const allContacts = useSelector(getAllContacts);
+  console.log(allContacts);
+  const filteredContacts = useSelector(getFilteredContacts);
 
-  const addContact = ({ name, number }) => {
-    if (isDublicate(name)) {
-      toast.success(`${name} 🦄 is already in contacts`);
-      return false;
-    }
+  const filter = useSelector(getFilter);
 
-    const newContact = { id: nanoid(), name, number };
-    setContacts(prevContacts => {
-      return [newContact, ...prevContacts];
-    });
-    return true;
-  };
+  const dispatch = useDispatch();
 
   const isDublicate = name => {
     const normalizedName = name.toLowerCase();
-    const result = contacts.find(({ name }) => {
+    const result = allContacts.find(({ name }) => {
       return name.toLowerCase() === normalizedName;
     });
     return Boolean(result);
   };
 
-  const handleFilter = ({ target }) => setFilter(target.value);
+  // useEffect(() => {
+  //   localStorage.setItem('my-contacts', JSON.stringify(contacts));
+  // }, [contacts]);
 
-  const getFilteredContacts = () => {
-    if (!filter) {
-      return contacts;
+  const handleAddContact = ({ name, number }) => {
+    console.log(name, number);
+    if (isDublicate(name)) {
+      toast.success(`${name} 🦄 is already in contacts`);
+      return false;
     }
-    const normalizedFilter = filter.toLowerCase();
-    const result = contacts.filter(({ name }) => {
-      return name.toLowerCase().includes(normalizedFilter);
-    });
-    return result;
+
+    const action = addContact({ name, number });
+    console.log(action);
+    dispatch(action);
   };
+
+  const handleFilter = ({ target }) => {
+    dispatch(setFilter(target.value));
+  };
+
+  // const getFilteredContacts = () => {
+  //   if (!filter) {
+  //     return contacts;
+  //   }
+  //   const normalizedFilter = filter.toLowerCase();
+  //   const result = contacts.filter(({ name }) => {
+  //     return name.toLowerCase().includes(normalizedFilter);
+  //   });
+  //   return result;
+  // };
 
   const removeContact = id => {
-    setContacts(prevContacts => {
-      return prevContacts.filter(contact => contact.id !== id);
-    });
+    dispatch(deleteContact(id));
   };
 
-  const filteredContacts = getFilteredContacts();
+  // const filteredContacts = getFilteredContacts();
   const isContacts = Boolean(filteredContacts.length);
 
   return (
     <div>
       <Wrap>
         <Block>
-          <PhonebookForm onSubmit={addContact} />
+          <PhonebookForm onSubmit={handleAddContact} />
         </Block>
 
         <Block>
-          <PhonebookFilter handleChange={handleFilter} />
+          <PhonebookFilter value={filter} handleChange={handleFilter} />
 
           {isContacts && (
             <PhonebookList

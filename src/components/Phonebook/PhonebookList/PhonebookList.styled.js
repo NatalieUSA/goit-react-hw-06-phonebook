@@ -16,8 +16,8 @@ export const List = styled.ul`
   list-style: none;
   margin: 0 auto;
   padding: 40px;
-  border-radius: 25px;
-  box-shadow: inset 6px 6px 6px 0px #68b4cf, inset -6px -10px 10px 0px #68b4cf;
+  border-radius: 1px;
+  box-shadow: inset 6px 10px 1px 0px yellow, inset -6px -10px 1px 0px #68b4cf;
   // scrollbar == do not working in mozilla
 
   // &::-webkit-scrollbar {
@@ -34,7 +34,7 @@ export const List = styled.ul`
 
   width: 55%;
   height: 15%;
-  background-color: deeppink;
+  background-color: #f10684;
   color: yellow;
   margin-bottom: 30px;
 
@@ -49,6 +49,6 @@ export const List = styled.ul`
     width: 65%;
   }
   @media (min-width: 1020px) {
-    width: 40%;
+    width: 60%;
   }
 `;

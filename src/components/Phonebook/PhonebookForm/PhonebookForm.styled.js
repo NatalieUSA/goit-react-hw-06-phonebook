@@ -13,9 +13,10 @@ export const FormGroup = styled.div`
   list-style: none;
   margin: 30px auto;
   padding: 40px;
-  background-color: #68b4cf;
-  border-radius: 25px;
-  box-shadow: inset 6px 6px 6px 0px deeppink, inset -6px -10px 10px 0px deeppink;
+  background-color: #ffa928;
+  // border-radius: 25px;
+  border-radius: 1px;
+  box-shadow: inset 6px 10px 1px 0px red, inset -6px -10px 1px 0px blue;
 
   &::-webkit-scrollbar {
     width: 10px;
@@ -36,12 +37,12 @@ export const FormGroup = styled.div`
     width: 65%;
   }
   @media (min-width: 1020px) {
-    width: 40%;
+    width: 60%;
   }
 `;
 
 export const Input = styled.input`
-  width: 70%;
+  width: 80%;
   background: transparent;
   border: none;
   border-bottom: 0.5px solid yellow;
@@ -62,16 +63,16 @@ export const Label = styled.label``;
 export const FormBtn = styled.button`
   text-align: center;
   margin-top: 30px;
-  height: 90px;
-  width: 90px;
-  border-radius: 50px;
+  height: 50px;
+  width: 120px;
+  // border-radius: 50px;
  cursor: pointer;
 
   font-size: xx-small;
   text-transform: uppercase;
  
-  background-color: yellow;
-  color:#68b4cf;
+  background-color: red;
+  color: yellow;
 
   border-style: none;
   box-shadow: 3px 3px 3px grey;
