@@ -5,9 +5,29 @@ import { ListItem } from './PhonebookList.styled';
 import { List } from './PhonebookList.styled';
 import { Btn } from 'components/shared/Button/Button.styled';
 
-export const PhonebookList = ({ removeContact, contacts }) => {
-  const contact = contacts.map(({ id, name, number }) => (
-    <ListItem key={id}>
+import {
+  getAllContacts,
+  getFilteredContacts,
+} from 'components/redux/contacts/ContactsSelector';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { deleteContact } from 'components/redux/contacts/ContactsSlice';
+import { Title } from 'components/shared/Title/Title';
+
+export const PhonebookList = () => {
+  const allContacts = useSelector(getAllContacts);
+  const filteredContacts = useSelector(getFilteredContacts);
+
+  const dispatch = useDispatch();
+
+  const removeContact = id => {
+    dispatch(deleteContact(id));
+  };
+
+  const isContacts = Boolean(filteredContacts.length);
+
+  const contact = filteredContacts.map(({ id, name, number }) => (
+    <ListItem key={id} c>
       {name}
       <BsTelephone /> {number}
       <Btn type="submit" onClick={() => removeContact(id)}>
@@ -15,20 +35,12 @@ export const PhonebookList = ({ removeContact, contacts }) => {
       </Btn>
     </ListItem>
   ));
-  return <List>{contact}</List>;
-};
 
-PhonebookList.defaultProps = {
-  contacts: [],
-};
+  const contactList = isContacts ? (
+    <List>{contact}</List>
+  ) : (
+    <Title>No contacts in list</Title>
+  );
 
-PhonebookList.propTypes = {
-  removeContact: PropTypes.func.isRequired,
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ),
+  return contactList;
 };
