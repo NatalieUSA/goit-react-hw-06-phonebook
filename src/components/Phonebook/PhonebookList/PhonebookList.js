@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import { BsTelephone } from 'react-icons/bs';
 import { ListItem } from './PhonebookList.styled';
 import { List } from './PhonebookList.styled';

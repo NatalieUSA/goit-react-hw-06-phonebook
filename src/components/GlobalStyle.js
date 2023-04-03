@@ -19,7 +19,9 @@ body {
  //background-image: url("https://dejpknyizje2n.cloudfront.net/marketplace/products/wow-pop-art-woman-sticker-1540400543.6055257.png");
  //background-image: url("https://t4.ftcdn.net/jpg/01/79/37/99/240_F_179379926_LP8w6b3wNDfImZoZTEAdOgzNTEJd4oxF.jpg");
 background-image: url("https://images.fineartamerica.com/images-medium-large-5/pop-art-comic-book-mouth-of-woman-drante.jpg");
-background-size: cover;
+//background-image: url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/old-glory-weathered-rob-hans.jpg");
+
+ background-size: cover;
 color: white;
 }
 
