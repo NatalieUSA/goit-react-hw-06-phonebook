@@ -1,5 +1,4 @@
 export const getAllContacts = store => store.contacts;
-console.log(getAllContacts);
 
 export const getFilteredContacts = ({ contacts, filter }) => {
   if (!filter) {

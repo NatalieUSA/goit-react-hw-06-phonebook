@@ -3,17 +3,13 @@ import { ListItem } from './PhonebookList.styled';
 import { List } from './PhonebookList.styled';
 import { Btn } from 'components/shared/Button/Button.styled';
 
-import {
-  getAllContacts,
-  getFilteredContacts,
-} from 'components/redux/contacts/ContactsSelector';
+import { getFilteredContacts } from 'components/redux/contacts/ContactsSelector';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'components/redux/contacts/ContactsSlice';
 import { Title } from 'components/shared/Title/Title';
 
 export const PhonebookList = () => {
-  const allContacts = useSelector(getAllContacts);
   const filteredContacts = useSelector(getFilteredContacts);
 
   const dispatch = useDispatch();

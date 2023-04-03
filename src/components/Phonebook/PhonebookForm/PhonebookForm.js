@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getAllContacts } from 'components/redux/contacts/ContactsSelector';
 import { toast } from 'react-toastify';
 
-export const PhonebookForm = ({ onSubmit }) => {
+export const PhonebookForm = () => {
   const [state, setState] = useState({ ...initialState });
   const allContacts = useSelector(getAllContacts);
   const dispatch = useDispatch();
@@ -24,14 +24,12 @@ export const PhonebookForm = ({ onSubmit }) => {
   };
 
   const handleAddContact = ({ name, number }) => {
-    console.log(name, number);
     if (isDublicate(name)) {
       toast.success(`${name} 🦄 is already in contacts`);
       return false;
     }
 
     const action = addContact({ name, number });
-    console.log(action);
     dispatch(action);
   };
 
@@ -47,7 +45,6 @@ export const PhonebookForm = ({ onSubmit }) => {
     handleAddContact({ ...state });
     setState({ ...initialState });
   };
-
 
   const { name, number } = state;
 
